@@ -42,8 +42,19 @@
 			options = $.extend({}, config.defaults, options);
 
 			if (typeof options.expires === 'number') {
-				var days = options.expires, t = options.expires = new Date();
-				t.setDate(t.getDate() + days);
+				var unit = (options.expirationUnit !== undefined)
+						? options.expirationUnit.toLowerCase() 
+						: undefined;
+				if (unit === 'minutes' || unit === 'minute' || unit === 'min'){
+					var min = options.expires, now = new Date(); 
+					options.expires = new Date(now.getTime() + min*60000);
+				}else if (unit === 'seconds' || unit === 'second' || unit === 'sec'){ 
+					var sec = options.expires, now = new Date(); 
+					options.expires = new Date(now.getTime() + sec*1000);
+				}else{
+					var days = options.expires, t = options.expires = new Date();
+					t.setDate(t.getDate() + days);
+				}
 			}
 
 			value = config.json ? JSON.stringify(value) : String(value);

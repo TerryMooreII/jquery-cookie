@@ -22,6 +22,14 @@ Create session cookie:
 Create expiring cookie, 7 days from then:
 
     $.cookie('the_cookie', 'the_value', { expires: 7 });
+    
+Create expiring cookie, 5 minutes from then:
+
+    $.cookie('the_cookie', 'the_value', { expires: 5, expirationUnit:'minutes' });
+
+Create expiring cookie, 30 seconds from then:
+
+    $.cookie('the_cookie', 'the_value', { expires: 30, expirationUnit:'seconds' });
 
 Create expiring cookie, valid across entire site:
 

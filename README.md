@@ -70,6 +70,14 @@ Turn on automatic storage of JSON objects passed as the cookie value. Assumes `J
 
 ## Cookie Options
 
+### expirationUnit
+
+The unit measure that the expires option will be treated as. 
+Valid options are:
+                    'minutes'
+                    'seconds'
+                    Default: 'days'
+
 ### expires
 
 Cookie attributes can be set globally by setting properties of the `$.cookie.defaults` object or individually for each call to `$.cookie()` by passing a plain object to the options argument. Per-call options override the default options.
